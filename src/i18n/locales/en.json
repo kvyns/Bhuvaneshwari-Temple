@@ -1,0 +1,124 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "darshan": "Live Darshan",
+    "puja": "Pooja",
+    "donation": "Donate",
+    "aarti": "Aarti",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Bhuvaneshwari Devi Temple",
+    "subtitle": "Divine Abode of Goddess Bhuvaneshwari",
+    "description": "Experience the divine grace of Goddess Bhuvaneshwari, the Mistress of the World, in the serene Garhwal hills of Uttarakhand",
+    "welcomeTitle": "Welcome to Bhuvaneshwari Devi Temple",
+    "welcomeText": "The Bhuvaneshwari Devi Temple in the Neelkanth area of Uttarakhand, India, is a sacred site for devotees, offering spectacular views of the Garhwal hills. Located near Pauri, it serves as both a spiritual sanctuary and a traditional school based on the Guru-Shishya methodology.",
+    "quickLinks": "Quick Services",
+    "liveDarshan": "Live Darshan",
+    "onlinePuja": "Book Puja",
+    "donate": "Donate",
+    "aartiTimings": "Aarti Timings"
+  },
+  "about": {
+    "title": "About Bhuvaneshwari Devi Temple",
+    "subtitle": "A Sacred Journey Through Divine Heritage",
+    "location": "Location & Significance",
+    "locationDesc": "The Bhuvaneshwari Devi Temple is situated on a hilltop in the Pauri District of Uttarakhand, approximately 15 km from the town of Pauri.",
+    "goddess": "About Goddess Bhuvaneshwari",
+    "goddessDesc": "Goddess Bhuvaneshwari is considered the 'Mistress of the World' and a form of the divine feminine energy. She represents the cosmic power that creates, maintains, and transforms the universe.",
+    "scenicViews": "Spectacular Views",
+    "scenicViewsDesc": "From the temple, visitors can enjoy breathtaking views of the surrounding Garhwal Himalayas.",
+    "guruShishya": "Traditional School",
+    "guruShishyaDesc": "A traditional school, operating under the Guru-Shishya (teacher-disciple) tradition, is also located at the temple site.",
+    "neelkanth": "Neelkanth Mahadev Connection",
+    "neelkanthDesc": "The temple is in the vicinity of the famous Neelkanth Mahadev Temple. The name Neelkanth (meaning 'blue-throated') comes from the legend of Lord Shiva consuming poison during the Samudra Manthan (churning of the ocean), which turned his throat blue."
+  },
+  "darshan": {
+    "title": "Live Darshan",
+    "subtitle": "Experience Divine Presence Anywhere",
+    "liveNow": "Live Now",
+    "schedule": "Darshan Schedule",
+    "morning": "Morning Darshan",
+    "evening": "Evening Darshan",
+    "timings": "Temple Timings",
+    "morningTime": "5:00 AM - 12:00 PM",
+    "eveningTime": "4:00 PM - 9:00 PM"
+  },
+  "puja": {
+    "title": "Book Special Puja",
+    "subtitle": "Seek Divine Blessings",
+    "selectPuja": "Select Puja",
+    "yourDetails": "Your Details",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "date": "Preferred Date",
+    "gotra": "Gotra",
+    "specialRequest": "Special Requests",
+    "bookNow": "Book Now",
+    "pujaTypes": {
+      "regular": "Regular Puja",
+      "special": "Special Puja",
+      "abhishek": "Rudrabhishek",
+      "havan": "Havan",
+      "satyanarayan": "Satyanarayan Katha",
+      "sunderkand": "Sunderkand Path"
+    }
+  },
+  "donation": {
+    "title": "Online Donation",
+    "subtitle": "Support the Temple & Seva Activities",
+    "amount": "Donation Amount",
+    "customAmount": "Custom Amount",
+    "purpose": "Donation Purpose",
+    "generalFund": "General Fund",
+    "annadanam": "Annadanam (Food Service)",
+    "templeConstruction": "Temple Construction",
+    "education": "Gurukul Education",
+    "donate": "Donate Now",
+    "thankyou": "Thank you for your generous support"
+  },
+  "aarti": {
+    "title": "Aarti Schedule",
+    "subtitle": "Daily Prayer Timings",
+    "morning": "Morning Aarti",
+    "evening": "Evening Aarti",
+    "watch": "Watch Aarti",
+    "lyrics": "Aarti Lyrics"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Divine Moments & Temple Beauty",
+    "temple": "Temple Views",
+    "festivals": "Festivals",
+    "activities": "Temple Activities"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're Here to Help",
+    "address": "Address",
+    "addressText": "Bhuvaneshwari Devi Temple, Neelkanth Area, Pauri District, Uttarakhand - 246001",
+    "phone": "Phone",
+    "email": "Email",
+    "getInTouch": "Get In Touch",
+    "message": "Your Message",
+    "send": "Send Message"
+  },
+  "footer": {
+    "tagline": "Divine Abode of Goddess Bhuvaneshwari",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "connect": "Connect With Us",
+    "rights": "All rights reserved"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "explore": "Explore",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "loading": "Loading..."
+  }
+}
