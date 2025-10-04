@@ -11,12 +11,12 @@ const Gallery = () => {
   useEffect(() => {
     const loadImages = () => {
       // Get all image files using import.meta.glob
-      const imageModules = import.meta.glob('//images/*.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)', { eager: true, as: 'url' });
+      const imageModules = import.meta.glob('//images/*.(jpg|jpeg|png|gif|jpg|JPEG|PNG|GIF)', { eager: true, as: 'url' });
       
       const images = Object.keys(imageModules).map((path, index) => {
         const fileName = path.split('/').pop();
         const imagePath = `/images/${fileName}`;
-        const title = fileName.replace(/\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/, '').replace(/_/g, ' ');
+        const title = fileName.replace(/\.(jpg|jpeg|png|gif|jpg|JPEG|PNG|GIF)$/, '').replace(/_/g, ' ');
         
         return {
           id: index + 1,
@@ -40,7 +40,7 @@ const Gallery = () => {
       <motion.section 
         className="relative h-[50vh] flex items-center justify-center text-center text-white bg-cover bg-center"
         style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(/images/DSC08164.JPG )'
+          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(/images/DSC08164.jpg )'
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

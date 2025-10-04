@@ -66,7 +66,7 @@ const Home = () => {
                 loop
                 playsInline
             >
-                <source src="/videos/final.mp4" type="video/mp4" />
+                <source src="/videos/final4.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
@@ -162,7 +162,7 @@ const Home = () => {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="public\images\home_1.JPG" 
+                  src="public\images\home_1.jpg" 
                   alt="Temple Deity"
                   className="w-full h-[500px] md:h-[600px] object-cover"
                 />
@@ -289,7 +289,7 @@ const Home = () => {
             >
               <div className="relative w-full h-full min-h-[300px]">
                 <img 
-                  src="public\images\home_2.JPG" 
+                  src="public\images\home_2.jpg" 
                   alt="Temple Architecture"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -310,7 +310,7 @@ const Home = () => {
             >
               <div className="relative w-full h-full min-h-[300px]">
                 <img 
-                  src="public\images\home_3.JPG" 
+                  src="public\images\home_3.jpg" 
                   alt="Temple Bells"
                   className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                 />
@@ -331,7 +331,7 @@ const Home = () => {
             >
               <div className="relative w-full h-full min-h-[300px]">
                 <img 
-                  src="public\images\home_4.JPG" 
+                  src="public\images\home_4.jpg" 
                   alt="Temple Lamps"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -433,7 +433,7 @@ const Home = () => {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/images/home_5.JPG" 
+                  src="/images/home_5.jpg" 
                   alt="Temple Offerings"
                   className="w-full h-[350px] object-cover"
                 />
@@ -489,7 +489,7 @@ const Home = () => {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/images/home_6.JPG" 
+                  src="/images/home_6.jpg" 
                   alt="Evening Aarti"
                   className="w-full h-[350px] object-cover"
                 />

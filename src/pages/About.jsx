@@ -16,7 +16,7 @@ const About = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <motion.section className="relative h-[60vh] flex items-center justify-center text-center text-white bg-cover bg-center"
-        style={{backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(/images/home_2.JPG)'}}
+        style={{backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(/images/home_2.jpg)'}}
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
         <div className="absolute inset-0" style={{background: 'radial-gradient(circle at center, transparent 0%, rgba(139, 0, 0, 0.3) 100%)'}}></div>
         <motion.div className="relative z-10 max-w-4xl px-8" initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3, duration: 0.8 }}>
