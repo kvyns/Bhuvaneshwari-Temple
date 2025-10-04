@@ -15,7 +15,7 @@ const Aarti = () => {
       <motion.section 
         className="relative h-[50vh] flex items-center justify-center text-center text-white bg-cover bg-center"
         style={{
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('/images/aarti.jpg')"
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('/images/aarti.JPG')"
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

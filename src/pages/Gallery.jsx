@@ -7,16 +7,20 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [galleryImages, setGalleryImages] = useState([]);
 
-  // Dynamically load all images from /images folder
+  // Load images from public/images folder
   useEffect(() => {
     const loadImages = () => {
-      // Get all image files using import.meta.glob
-      const imageModules = import.meta.glob('//images/*.(jpg|jpeg|png|gif|jpg|JPEG|PNG|GIF)', { eager: true, as: 'url' });
+      // Manually list all images (update this array when you add new images)
+      const imageFiles = [
+        'home_1.JPG',
+        'home_2.JPG',
+        'home_3.JPG',
+        'home_4.JPG'
+      ];
       
-      const images = Object.keys(imageModules).map((path, index) => {
-        const fileName = path.split('/').pop();
+      const images = imageFiles.map((fileName, index) => {
         const imagePath = `/images/${fileName}`;
-        const title = fileName.replace(/\.(jpg|jpeg|png|gif|jpg|JPEG|PNG|GIF)$/, '').replace(/_/g, ' ');
+        const title = fileName.replace(/\.(JPG|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/, '').replace(/_/g, ' ');
         
         return {
           id: index + 1,
@@ -40,7 +44,7 @@ const Gallery = () => {
       <motion.section 
         className="relative h-[50vh] flex items-center justify-center text-center text-white bg-cover bg-center"
         style={{
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('/images/DSC08164.jpg' )"
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('/images/DSC08164.JPG' )"
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
