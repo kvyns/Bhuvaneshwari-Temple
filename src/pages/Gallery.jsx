@@ -7,11 +7,11 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [galleryImages, setGalleryImages] = useState([]);
 
-  // Dynamically load all images from public/images folder
+  // Dynamically load all images from /images folder
   useEffect(() => {
     const loadImages = () => {
       // Get all image files using import.meta.glob
-      const imageModules = import.meta.glob('/public/images/*.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)', { eager: true, as: 'url' });
+      const imageModules = import.meta.glob('//images/*.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)', { eager: true, as: 'url' });
       
       const images = Object.keys(imageModules).map((path, index) => {
         const fileName = path.split('/').pop();
@@ -40,7 +40,7 @@ const Gallery = () => {
       <motion.section 
         className="relative h-[50vh] flex items-center justify-center text-center text-white bg-cover bg-center"
         style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(public/images/DSC08164.JPG )'
+          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(/images/DSC08164.JPG )'
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

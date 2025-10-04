@@ -433,7 +433,7 @@ const Home = () => {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="public/images/home_5.JPG" 
+                  src="/images/home_5.JPG" 
                   alt="Temple Offerings"
                   className="w-full h-[350px] object-cover"
                 />
@@ -489,7 +489,7 @@ const Home = () => {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="public/images/home_6.JPG" 
+                  src="/images/home_6.JPG" 
                   alt="Evening Aarti"
                   className="w-full h-[350px] object-cover"
                 />
