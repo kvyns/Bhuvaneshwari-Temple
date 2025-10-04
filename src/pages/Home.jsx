@@ -162,7 +162,7 @@ const Home = () => {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="\images\home_1.jpg" 
+                  src="/images/home_1.jpg" 
                   alt="Temple Deity"
                   className="w-full h-[500px] md:h-[600px] object-cover"
                 />
@@ -289,7 +289,7 @@ const Home = () => {
             >
               <div className="relative w-full h-full min-h-[300px]">
                 <img 
-                  src="\images\home_2.jpg" 
+                  src="/images/home_2.jpg" 
                   alt="Temple Architecture"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -310,7 +310,7 @@ const Home = () => {
             >
               <div className="relative w-full h-full min-h-[300px]">
                 <img 
-                  src="\images\home_3.jpg" 
+                  src="/images/home_3.jpg" 
                   alt="Temple Bells"
                   className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                 />
@@ -331,7 +331,7 @@ const Home = () => {
             >
               <div className="relative w-full h-full min-h-[300px]">
                 <img 
-                  src="\images\home_4.jpg" 
+                  src="/images/home_4.jpg" 
                   alt="Temple Lamps"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />

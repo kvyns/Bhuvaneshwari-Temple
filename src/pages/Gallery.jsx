@@ -16,7 +16,7 @@ const Gallery = () => {
       const images = Object.keys(imageModules).map((path, index) => {
         const fileName = path.split('/').pop();
         const imagePath = `/images/${fileName}`;
-        const title = fileName.replace(/\.(jpg|jpeg|png|gif|jpg|JPEG|PNG|GIF)$/, '').replace(/_/g, ' ');
+        const title = fileName.replace(//.(jpg|jpeg|png|gif|jpg|JPEG|PNG|GIF)$/, '').replace(/_/g, ' ');
         
         return {
           id: index + 1,

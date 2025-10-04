@@ -58,9 +58,9 @@ const Contact = () => {
               
               {[
                 { icon: <FaMapMarkerAlt />, title: t('contact.address'), content: t('contact.addressText') },
-                { icon: <FaPhone />, title: t('contact.phone'), content: '+91-XXXXXXXXXX\n+91-YYYYYYYYYY' },
-                { icon: <FaEnvelope />, title: t('contact.email'), content: 'info@bhuvaneshwari-temple.org\ncontact@bhuvaneshwari-temple.org' },
-                { icon: <FaClock />, title: t('darshan.timings'), content: `${t('darshan.morning')}: ${t('darshan.morningTime')}\n${t('darshan.evening')}: ${t('darshan.eveningTime')}` }
+                { icon: <FaPhone />, title: t('contact.phone'), content: '+91-XXXXXXXXXX/n+91-YYYYYYYYYY' },
+                { icon: <FaEnvelope />, title: t('contact.email'), content: 'info@bhuvaneshwari-temple.org/ncontact@bhuvaneshwari-temple.org' },
+                { icon: <FaClock />, title: t('darshan.timings'), content: `${t('darshan.morning')}: ${t('darshan.morningTime')}/n${t('darshan.evening')}: ${t('darshan.eveningTime')}` }
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-6 bg-white p-6 rounded-2xl mb-6 shadow-lg">
                   <div className="text-3xl text-[#8B0000] flex-shrink-0">{item.icon}</div>
