@@ -53,13 +53,12 @@ return (
                     {isOpen ? <FaTimes /> : <FaBars />}
                 </div>
 
-                <ul className="hidden md:flex items-center justify-center list-none gap-8 m-0 p-0">
-                    {['home', 'about', 'darshan', 'puja', 'donation', 'aarti', 'gallery', 'contact'].map((item) => (
+                <ul className="hidden md:flex items-center justify-center list-none gap-4 m-0 p-0">
+                    {['home', 'about', 'darshan', 'puja', 'donation', 'aarti', 'gallery', 'contact', 'bookingStatus'].map((item) => (
                         <motion.li key={item} whileHover={{ scale: 1.05 }}>
                             <Link 
-                                to={item === 'home' ? '/' : `/${item}`} 
-                                className="text-white no-underline px-4 py-2 rounded transition-all duration-300 font-semibold hover:bg-white/20"
-                                style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}
+                                to={item === 'home' ? '/' : item === 'bookingStatus' ? '/booking-status' : `/${item}`} 
+                                className="text-white no-underline px-4 py-2 rounded-lg transition-all duration-300 font-semibold hover:bg-white text-center inline-block min-w-[100px] hover:text-[#8B0000]"
                             >
                                 {t(`nav.${item}`)}
                             </Link>
@@ -88,13 +87,12 @@ return (
             </div>
             
             <ul className="list-none p-8 m-0 flex flex-col items-center">
-                {['home', 'about', 'darshan', 'puja', 'donation', 'aarti', 'gallery', 'contact'].map((item) => (
+                {['home', 'about', 'darshan', 'puja', 'donation', 'aarti', 'gallery', 'contact', 'bookingStatus'].map((item) => (
                     <li key={item} className="mb-4 w-full">
                         <Link 
-                            to={item === 'home' ? '/' : `/${item}`} 
-                            className="text-white no-underline text-lg font-semibold block p-4 rounded-lg transition-all duration-300 hover:bg-white/20 hover:translate-x-2 text-center" 
+                            to={item === 'home' ? '/' : item === 'bookingStatus' ? '/booking-status' : `/${item}`} 
+                            className="text-white no-underline text-lg font-semibold block p-4 rounded-lg transition-all duration-300 hover:bg-white hover:text-[#8B0000] text-center" 
                             onClick={toggleMenu}
-                            style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}
                         >
                             {t(`nav.${item}`)}
                         </Link>

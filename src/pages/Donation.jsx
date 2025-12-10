@@ -9,6 +9,7 @@ const Donation = () => {
     firstName: '',
     lastName: '',
     fatherName: '',
+    countryCode: '+91',
     mobile: '',
     email: '',
     // Address Details
@@ -25,8 +26,40 @@ const Donation = () => {
     panCardNumber: '',
     paymentGateway: ''
   });
+  const [errors, setErrors] = useState({});
+
+  const countryCodes = [
+    { code: '+91', country: 'India', length: 10 },
+    { code: '+1', country: 'USA/Canada', length: 10 },
+    { code: '+44', country: 'UK', length: 10 },
+    { code: '+971', country: 'UAE', length: 9 },
+    { code: '+61', country: 'Australia', length: 9 },
+    { code: '+65', country: 'Singapore', length: 8 },
+    { code: '+60', country: 'Malaysia', length: 9 },
+    { code: '+977', country: 'Nepal', length: 10 },
+    { code: '+880', country: 'Bangladesh', length: 10 },
+    { code: '+94', country: 'Sri Lanka', length: 9 },
+  ];
 
   const predefinedAmounts = [500, 1000, 2100, 5000, 11000, 21000];
+
+  // Validation functions
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone, countryCode) => {
+    const country = countryCodes.find(c => c.code === countryCode);
+    if (!country) return false;
+    const phoneRegex = /^\d+$/;
+    return phoneRegex.test(phone) && phone.length === country.length;
+  };
+
+  const validateName = (name) => {
+    const nameRegex = /^[a-zA-Z\s]{2,50}$/;
+    return nameRegex.test(name.trim());
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +72,35 @@ const Donation = () => {
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    const updatedFormData = { ...formData, [name]: value };
+    setFormData(updatedFormData);
+    
+    // Validate all fields simultaneously
+    const newErrors = {};
+
+    if (updatedFormData.firstName && !validateName(updatedFormData.firstName)) {
+      newErrors.firstName = 'Please enter a valid first name (2-50 characters, letters only)';
+    }
+
+    if (updatedFormData.lastName && !validateName(updatedFormData.lastName)) {
+      newErrors.lastName = 'Please enter a valid last name (2-50 characters, letters only)';
+    }
+
+    if (updatedFormData.fatherName && !validateName(updatedFormData.fatherName)) {
+      newErrors.fatherName = 'Please enter a valid name (2-50 characters, letters only)';
+    }
+
+    if (updatedFormData.email && !validateEmail(updatedFormData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (updatedFormData.mobile && !validatePhone(updatedFormData.mobile, updatedFormData.countryCode)) {
+      const country = countryCodes.find(c => c.code === updatedFormData.countryCode);
+      newErrors.mobile = `Please enter a valid ${country?.length}-digit phone number`;
+    }
+
+    setErrors(newErrors);
   };
 
   const handleAmountClick = (amount) => {
@@ -93,8 +154,13 @@ const Donation = () => {
                       onChange={handleChange} 
                       placeholder="Enter Your First Name *"
                       required 
-                      className="px-4 py-3 border-2 border-gray-300 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:border-temple-maroon focus:ring-4 focus:ring-temple-maroon/10" 
+                      className={`px-4 py-3 border-2 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:ring-4 ${
+                        errors.firstName 
+                          ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' 
+                          : 'border-gray-300 focus:border-temple-maroon focus:ring-temple-maroon/10'
+                      }`}
                     />
+                    {errors.firstName && <span className="text-red-500 text-sm mt-1">{errors.firstName}</span>}
                   </div>
 
                   <div className="flex flex-col">
@@ -106,8 +172,13 @@ const Donation = () => {
                       onChange={handleChange} 
                       placeholder="Enter Your Last Name *"
                       required 
-                      className="px-4 py-3 border-2 border-gray-300 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:border-temple-maroon focus:ring-4 focus:ring-temple-maroon/10" 
+                      className={`px-4 py-3 border-2 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:ring-4 ${
+                        errors.lastName 
+                          ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' 
+                          : 'border-gray-300 focus:border-temple-maroon focus:ring-temple-maroon/10'
+                      }`}
                     />
+                    {errors.lastName && <span className="text-red-500 text-sm mt-1">{errors.lastName}</span>}
                   </div>
 
                   <div className="flex flex-col">
@@ -119,21 +190,49 @@ const Donation = () => {
                       onChange={handleChange} 
                       placeholder="Enter Your Father Name *"
                       required 
-                      className="px-4 py-3 border-2 border-gray-300 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:border-temple-maroon focus:ring-4 focus:ring-temple-maroon/10" 
+                      className={`px-4 py-3 border-2 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:ring-4 ${
+                        errors.fatherName 
+                          ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' 
+                          : 'border-gray-300 focus:border-temple-maroon focus:ring-temple-maroon/10'
+                      }`}
                     />
+                    {errors.fatherName && <span className="text-red-500 text-sm mt-1">{errors.fatherName}</span>}
                   </div>
 
                   <div className="flex flex-col">
                     <label className="font-semibold text-gray-700 mb-2">Mobile Number *</label>
-                    <input 
-                      type="tel" 
-                      name="mobile" 
-                      value={formData.mobile} 
-                      onChange={handleChange} 
-                      placeholder="Enter Your Mobile Number *"
-                      required 
-                      className="px-4 py-3 border-2 border-gray-300 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:border-temple-maroon focus:ring-4 focus:ring-temple-maroon/10" 
-                    />
+                    <div className="flex gap-2">
+                      <select
+                        name="countryCode"
+                        value={formData.countryCode}
+                        onChange={handleChange}
+                        className={`px-3 py-3 border-2 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:ring-4 ${
+                          errors.mobile 
+                            ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' 
+                            : 'border-gray-300 focus:border-temple-maroon focus:ring-temple-maroon/10'
+                        }`}
+                      >
+                        {countryCodes.map((country) => (
+                          <option key={country.code} value={country.code}>
+                            {country.code} ({country.country})
+                          </option>
+                        ))}
+                      </select>
+                      <input 
+                        type="tel" 
+                        name="mobile" 
+                        value={formData.mobile} 
+                        onChange={handleChange} 
+                        placeholder={`${countryCodes.find(c => c.code === formData.countryCode)?.length} digits`}
+                        required 
+                        className={`flex-1 px-4 py-3 border-2 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:ring-4 ${
+                          errors.mobile 
+                            ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' 
+                            : 'border-gray-300 focus:border-temple-maroon focus:ring-temple-maroon/10'
+                        }`}
+                      />
+                    </div>
+                    {errors.mobile && <span className="text-red-500 text-sm mt-1">{errors.mobile}</span>}
                   </div>
 
                   <div className="flex flex-col md:col-span-2">
@@ -145,8 +244,13 @@ const Donation = () => {
                       onChange={handleChange} 
                       placeholder="Enter Your Email *"
                       required 
-                      className="px-4 py-3 border-2 border-gray-300 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:border-temple-maroon focus:ring-4 focus:ring-temple-maroon/10" 
+                      className={`px-4 py-3 border-2 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:ring-4 ${
+                        errors.email 
+                          ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' 
+                          : 'border-gray-300 focus:border-temple-maroon focus:ring-temple-maroon/10'
+                      }`}
                     />
+                    {errors.email && <span className="text-red-500 text-sm mt-1">{errors.email}</span>}
                   </div>
                 </div>
               </div>

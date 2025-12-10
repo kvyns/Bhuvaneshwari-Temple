@@ -8,19 +8,73 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    countryCode: '+91',
     phone: '',
     message: ''
   });
+  const [errors, setErrors] = useState({});
+
+  const countryCodes = [
+    { code: '+91', country: 'India', length: 10 },
+    { code: '+1', country: 'USA/Canada', length: 10 },
+    { code: '+44', country: 'UK', length: 10 },
+    { code: '+971', country: 'UAE', length: 9 },
+    { code: '+61', country: 'Australia', length: 9 },
+    { code: '+65', country: 'Singapore', length: 8 },
+    { code: '+60', country: 'Malaysia', length: 9 },
+    { code: '+977', country: 'Nepal', length: 10 },
+    { code: '+880', country: 'Bangladesh', length: 10 },
+    { code: '+94', country: 'Sri Lanka', length: 9 },
+  ];
+
+  // Validation functions
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone, countryCode) => {
+    const country = countryCodes.find(c => c.code === countryCode);
+    if (!country) return false;
+    const phoneRegex = /^\d+$/;
+    return phoneRegex.test(phone) && phone.length === country.length;
+  };
+
+  const validateName = (name) => {
+    const nameRegex = /^[a-zA-Z\s]{2,50}$/;
+    return nameRegex.test(name.trim());
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Contact form:', formData);
     alert('Thank you for contacting us!');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData({ name: '', email: '', countryCode: '+91', phone: '', message: '' });
+    setErrors({});
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    const updatedFormData = { ...formData, [name]: value };
+    setFormData(updatedFormData);
+    
+    // Validate all fields simultaneously
+    const newErrors = {};
+
+    if (updatedFormData.name && !validateName(updatedFormData.name)) {
+      newErrors.name = 'Please enter a valid name (2-50 characters, letters only)';
+    }
+
+    if (updatedFormData.email && !validateEmail(updatedFormData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (updatedFormData.phone && !validatePhone(updatedFormData.phone, updatedFormData.countryCode)) {
+      const country = countryCodes.find(c => c.code === updatedFormData.countryCode);
+      newErrors.phone = `Please enter a valid ${country?.length}-digit phone number`;
+    }
+
+    setErrors(newErrors);
   };
 
   return (
@@ -81,17 +135,71 @@ const Contact = () => {
               <form onSubmit={handleSubmit}>
                 <div className="flex flex-col mb-6">
                   <label className="font-semibold text-gray-700 mb-2">{t('puja.name')} *</label>
-                  <input type="text" name="name" value={formData.name} onChange={handleChange} required className="px-4 py-3 border-2 border-gray-300 rounded-xl text-base transition-all duration-300 focus:outline-none focus:border-temple-maroon focus:ring-4 focus:ring-red-800" />
+                  <input 
+                    type="text" 
+                    name="name" 
+                    value={formData.name} 
+                    onChange={handleChange} 
+                    required 
+                    className={`px-4 py-3 border-2 rounded-xl text-base transition-all duration-300 focus:outline-none focus:ring-4 ${
+                      errors.name 
+                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' 
+                        : 'border-gray-300 focus:border-temple-maroon focus:ring-temple-maroon/10'
+                    }`}
+                  />
+                  {errors.name && <span className="text-red-500 text-sm mt-1">{errors.name}</span>}
                 </div>
 
                 <div className="flex flex-col mb-6">
                   <label className="font-semibold text-gray-700 mb-2">{t('puja.email')} *</label>
-                  <input type="email" name="email" value={formData.email} onChange={handleChange} required className="px-4 py-3 border-2 border-gray-300 rounded-xl text-base transition-all duration-300 focus:outline-none focus:border-temple-maroon focus:ring-4 focus:ring-red-800" />
+                  <input 
+                    type="email" 
+                    name="email" 
+                    value={formData.email} 
+                    onChange={handleChange} 
+                    required 
+                    className={`px-4 py-3 border-2 rounded-xl text-base transition-all duration-300 focus:outline-none focus:ring-4 ${
+                      errors.email 
+                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' 
+                        : 'border-gray-300 focus:border-temple-maroon focus:ring-temple-maroon/10'
+                    }`}
+                  />
+                  {errors.email && <span className="text-red-500 text-sm mt-1">{errors.email}</span>}
                 </div>
 
                 <div className="flex flex-col mb-6">
                   <label className="font-semibold text-gray-700 mb-2">{t('puja.phone')}</label>
-                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="px-4 py-3 border-2 border-gray-300 rounded-xl text-base transition-all duration-300 focus:outline-none focus:border-temple-maroon focus:ring-4 focus:ring-red-800" />
+                  <div className="flex gap-2">
+                    <select
+                      name="countryCode"
+                      value={formData.countryCode}
+                      onChange={handleChange}
+                      className={`px-3 py-3 border-2 rounded-xl text-base text-gray-900 transition-all duration-300 focus:outline-none focus:ring-4 ${
+                        errors.phone 
+                          ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' 
+                          : 'border-gray-300 focus:border-temple-maroon focus:ring-temple-maroon/10'
+                      }`}
+                    >
+                      {countryCodes.map((country) => (
+                        <option key={country.code} value={country.code}>
+                          {country.code} ({country.country})
+                        </option>
+                      ))}
+                    </select>
+                    <input 
+                      type="tel" 
+                      name="phone" 
+                      value={formData.phone} 
+                      onChange={handleChange}
+                      placeholder={`${countryCodes.find(c => c.code === formData.countryCode)?.length} digits`}
+                      className={`flex-1 px-4 py-3 border-2 rounded-xl text-base transition-all duration-300 focus:outline-none focus:ring-4 ${
+                        errors.phone 
+                          ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' 
+                          : 'border-gray-300 focus:border-temple-maroon focus:ring-temple-maroon/10'
+                      }`}
+                    />
+                  </div>
+                  {errors.phone && <span className="text-red-500 text-sm mt-1">{errors.phone}</span>}
                 </div>
 
                 <div className="flex flex-col mb-6">

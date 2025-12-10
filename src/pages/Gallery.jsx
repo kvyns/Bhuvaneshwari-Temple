@@ -7,33 +7,42 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [galleryImages, setGalleryImages] = useState([]);
 
-  // Load images from public/images folder
+  // Dynamically load all images from public/images folder
   useEffect(() => {
-    const loadImages = () => {
-      // Manually list all images (update this array when you add new images)
-      const imageFiles = [
-        'home_1.JPG',
-        'home_2.JPG',
-        'home_3.JPG',
-        'home_4.JPG'
-      ];
-      
-      const images = imageFiles.map((fileName, index) => {
-        const imagePath = `/images/${fileName}`;
-        const title = fileName.replace(/\.(JPG|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/, '').replace(/_/g, ' ');
+    const loadImages = async () => {
+      try {
+        const imageModules = import.meta.glob('/images/*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', { 
+          eager: true,
+          import: 'default'
+        });
         
-        return {
-          id: index + 1,
-          category: 'temple',
-          url: imagePath,
-          title: title.charAt(0).toUpperCase() + title.slice(1)
-        };
-      });
-      
-      // Randomize the image sequence
-      const shuffledImages = images.sort(() => Math.random() - 0.5);
-      
-      setGalleryImages(shuffledImages);
+        const images = Object.entries(imageModules).map(([path, module], index) => {
+          const fileName = path.split('/').pop();
+          const imagePath = `/images/${fileName}`;
+          const title = fileName
+            .replace(/\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/, '')
+            .replace(/[_-]/g, ' ')
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+            .join(' ');
+          
+          return {
+            id: index + 1,
+            category: 'temple',
+            url: imagePath,
+            title: title
+          };
+        });
+        
+        // Randomize the image sequence
+        const shuffledImages = images.sort(() => Math.random() - 0.5);
+        
+        setGalleryImages(shuffledImages);
+      } catch (error) {
+        console.error('Error loading images:', error);
+
+        setGalleryImages([]);
+      }
     };
 
     loadImages();
