@@ -112,7 +112,7 @@ const Contact = () => {
               
               {[
                 { icon: <FaMapMarkerAlt />, title: t('contact.address'), content: t('contact.addressText') },
-                { icon: <FaPhone />, title: t('contact.phone'), content: '+91-XXXXXXXXXX\n+91-YYYYYYYYYY' },
+                { icon: <FaPhone />, title: t('contact.phone'), content: '+91-9412028688' },
                 { icon: <FaEnvelope />, title: t('contact.email'), content: 'info@bhuvaneshwari-temple.org\ncontact@bhuvaneshwari-temple.org' },
                 { icon: <FaClock />, title: t('darshan.timings'), content: `${t('darshan.morning')}: ${t('darshan.morningTime')}\n${t('darshan.evening')}: ${t('darshan.eveningTime')}` }
               ].map((item, idx) => (

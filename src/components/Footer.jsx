@@ -15,16 +15,33 @@ const Footer = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-temple-gold">{t('home.title')}</h3>
             <p className="text-base leading-7 opacity-90 pr-4">{t('footer.tagline')}</p>
             <div className="flex gap-4 pt-4">
-              {[FaFacebook, FaTwitter, FaInstagram, FaYoutube].map((Icon, idx) => (
-                <a 
-                  key={idx} 
-                  href="#" 
-                  className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-full text-white text-xl transition-all duration-300 hover:bg-temple-gold hover:text-temple-maroon hover:-translate-y-1 hover:shadow-lg"
-                  aria-label={`Social media link ${idx + 1}`}
-                >
-                  <Icon />
-                </a>
-              ))}
+              <a 
+                href="https://www.facebook.com/Maabhuwneshwari/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-full text-white text-xl transition-all duration-300 hover:bg-temple-gold hover:text-temple-maroon hover:-translate-y-1 hover:shadow-lg"
+                aria-label="Facebook"
+              >
+                <FaFacebook />
+              </a>
+              <a 
+                href="https://www.instagram.com/maabhuwneshwari/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-full text-white text-xl transition-all duration-300 hover:bg-temple-gold hover:text-temple-maroon hover:-translate-y-1 hover:shadow-lg"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
+              <a 
+                href="https://www.youtube.com/watch?v=hGixFMn7MvY&list=PL_gOLJw4PW92YD5246ahQp8jiC_86VWH1" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-full text-white text-xl transition-all duration-300 hover:bg-temple-gold hover:text-temple-maroon hover:-translate-y-1 hover:shadow-lg"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
             </div>
           </div>
 
@@ -72,7 +89,7 @@ const Footer = () => {
               </p>
               <p className="flex items-center gap-4 text-base">
                 <FaPhone className="text-temple-gold text-lg flex-shrink-0" />
-                <span className="opacity-90">+91-XXXXXXXXXX</span>
+                <span className="opacity-90">+91-9412028688</span>
               </p>
               <p className="flex items-center gap-4 text-base">
                 <FaEnvelope className="text-temple-gold text-lg flex-shrink-0" />

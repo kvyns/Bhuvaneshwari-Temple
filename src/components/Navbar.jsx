@@ -32,7 +32,7 @@ return (
         <div className="flex justify-between items-center w-full max-w-7xl px-8 mx-auto">
             <Link to="/" className="text-white no-underline cursor-pointer">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <h2 className="m-0 text-2xl font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>{t('home.title')}</h2>
+                    <h2 className="min-w-60 m-0 text-2xl font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>{t('home.title')}</h2>
                 </motion.div>
             </Link>
 
@@ -43,9 +43,12 @@ return (
                         value={currentLang} 
                         onChange={(e) => changeLanguage(e.target.value)}
                         className="bg-transparent text-white border-none outline-none cursor-pointer text-sm font-medium"
+                        style={{
+                            colorScheme: 'dark'
+                        }}
                     >
-                        <option value="en" className="bg-temple-maroon">English</option>
-                        <option value="hi" className="bg-temple-maroon">हिंदी</option>
+                        <option value="en" className="bg-[#8B0000] text-white">English</option>
+                        <option value="hi" className="bg-[#8B0000] text-white">हिंदी</option>
                     </select>
                 </div>
 
@@ -80,9 +83,12 @@ return (
                     value={currentLang} 
                     onChange={(e) => changeLanguage(e.target.value)}
                     className="bg-transparent text-white border-none outline-none cursor-pointer text-sm font-medium w-full"
+                    style={{
+                        colorScheme: 'dark'
+                    }}
                 >
-                    <option value="en" className="bg-temple-maroon">English</option>
-                    <option value="hi" className="bg-temple-maroon">हिंदी</option>
+                    <option value="en" className="bg-[#8B0000] text-white">English</option>
+                    <option value="hi" className="bg-[#8B0000] text-white">हिंदी</option>
                 </select>
             </div>
             
